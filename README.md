@@ -52,52 +52,7 @@ Designed for **local businesses**, this system simplifies financial operations w
 
 ---
 
-## 🛠️ Setup Instructions  
 
-### **Prerequisites**  
-Ensure you have:  
-✅ .NET 8.0 SDK  
-✅ Microsoft SQL Server  
-✅ Visual Studio  
-✅ Postman  
-✅ Git  
-
-### **Installation Steps**  
-1️⃣ **Clone the Repository:**  
-   ```sh
-   git clone https://github.com/prodotnet/Crehis-Management-System.git
-   cd Crehis-Management-System
-   ```
-
-2️⃣ **Configure the Database:**  
-   - Update `appsettings.json` with your SQL Server connection string.  
-   - Run migrations:  
-     ```sh
-     dotnet ef database update
-     ```
-
-3️⃣ **Run the Application:**  
-   ```sh
-   dotnet run
-   ```
-
-4️⃣ **Access the System:**  
-   Open `http://localhost:<port>` in your browser.  
-
----
-
-## 📸 Screenshots  
-
-🔹 **Dashboard View**  
-![Dashboard](https://github.com/prodotnet/Crehis-Management-System/assets/dashboard.png)  
-
-🔹 **Loan Management Page**  
-![Loan Management](https://github.com/prodotnet/Crehis-Management-System/assets/loan.png)  
-
-🔹 **Payment Tracking**  
-![Payments](https://github.com/prodotnet/Crehis-Management-System/assets/payments.png)  
-
----
 
 ## 🚀 Why This Project Stands Out  
 💡 **Designed for Real-World Use:** Built for a local business to handle actual loan processing.  
