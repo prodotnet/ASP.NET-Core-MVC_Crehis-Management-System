@@ -40,31 +40,6 @@ Designed for **local businesses**, this system simplifies financial operations w
 ✅ **Secure & Scalable Architecture** 
 
 
-## 🎯 Dashboard Overview
-
-✅ **Displays key loan statistics:**
-
-   -All Loans
-   -Loans Made Today
-   -User Registrations
-   -Loans Due Today
-   -Interactive charts (Doughnut Chart & Bar Chart) for financial trends.
-
-#🔹 **Client & Loan Management:**
-
-   -Displays all registered clients with Name, Surname, and Phone Number.
-   -Search and Filter options for quick lookup.
-   -Individual client loan payment statements accessible via View button.
-   -Borrower's Full Name
-   -Contact Information
-   -Loan Amount
-   -Due Date
-   -Outstanding Balance
-   -Loan Reservation & Payment Tracking
-   -Grace Period: 24 Hours for Late Payments
-   -Client Statement
-
-
 
 ---
 
