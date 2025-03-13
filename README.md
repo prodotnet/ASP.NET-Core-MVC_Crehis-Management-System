@@ -37,7 +37,66 @@ Designed for **local businesses**, this system simplifies financial operations w
 ✅ **Flexible Payment Options** (Advance & Restructuring)  
 ✅ **Grace Period:** 24 Hours for Late Payments  
 ✅ **Financial Analytics & Reports**  
-✅ **Secure & Scalable Architecture**  
+✅ **Secure & Scalable Architecture** 
+🎯 Features
+
+🔹 Dashboard Overview
+
+Displays key loan statistics:
+
+All Loans
+
+Loans Made Today
+
+User Registrations
+
+Loans Due Today
+
+Visual indicators for quick insights (color-coded small boxes).
+
+Interactive charts (Doughnut Chart & Bar Chart) for financial trends.
+
+🔹 Client & Loan Management
+
+Displays all registered clients with Name, Surname, and Phone Number.
+
+Search and Filter options for quick lookup.
+
+Individual client loan payment statements accessible via View button.
+
+Dedicated table for Loans Due Today with:
+
+Borrower's Full Name
+
+Contact Information
+
+Loan Amount
+
+Due Date
+
+Outstanding Balance
+
+Loan Reservation & Payment Tracking
+
+Flexible Payment Options (Advance & Restructuring)
+
+Grace Period: 24 Hours for Late Payments
+
+Clickable links for deeper insights into loans and payment history.
+
+🔹 Reports & Data Export
+
+Export client and loan data in PDF, CSV, or Excel format.
+
+Print-friendly client statements.
+
+Financial Analytics & Reports
+
+🔹 Automated Interest Calculation
+
+Loans <15 days: 30% interest
+
+Monthly loans: 50% interest
 
 ---
 
