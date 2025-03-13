@@ -2,7 +2,7 @@
 
 🚀 **Smart & Automated Loan Management System**  
 
-![Crehis Dashboard](https://github.com/prodotnet/Crehis-Management-System/assets/screenshot.png)  
+
 
 ---
 
