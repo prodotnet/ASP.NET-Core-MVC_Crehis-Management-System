@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Admin\source\repos\MVC_Management\MVC_Management\MVC_Management\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>False|2024-03-10T14:53:44.8634138Z;True|2024-03-09T20:36:59.2616040+02:00;True|2024-03-09T20:28:58.2786552+02:00;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=DESKTOP-U5BK7OE\SQLEXPRESS%3bDatabase=CrehisM%3bTrusted_Connection=True%3bTrustServerCertificate=True%3b  MultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

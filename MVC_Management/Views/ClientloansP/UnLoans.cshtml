@@ -1,0 +1,165 @@
+﻿@model MVC_Management.ViewModal.ClientsViewModal
+
+@{
+    ViewData["Title"] = "Clients List";
+}
+
+
+<hr />
+
+
+
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-4">
+            <div class="row">
+
+                <form asp-action="Addloan" enctype="multipart/form-data" class="form-vertical">
+
+                    <div class="row">
+
+
+                        <div class="col-md-11">
+
+
+                            <div class="form-group">
+                                <label asp-for="Phone" class="control-label"></label>
+                                <input asp-for="Phone"  class="form-control" />
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>Search</button>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+
+
+                            <div class="col-md-50">
+
+                                <div class="form-group">
+
+                                    <button type="submit" class="btn btn-warning"><i  class="fa fa-eraser"></i>Clear</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Please Search A client here and  Add A loan </h3>
+    </div>
+
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    
+                    <th>
+                        @Html.DisplayNameFor(model => model.Al_Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                   
+                    <th>
+                        Add A Loan
+                    </th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Allclients)
+                {
+                    <tr>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Al_Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        
+                        <td>
+
+                            <a asp-action="UniqueC" asp-route-id="@item.ID" class="btn  btn-success"><i class="fa fa-plus"></i> Loan</a>
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+    <script>
+        // Attach click event handler to the Clear button
+        document.getElementById('clearButton').addEventListener('click', function () {
+            // Clear the value of the phone input field
+            document.getElementById('phoneInput').value = '';
+        });
+    </script>
+} 

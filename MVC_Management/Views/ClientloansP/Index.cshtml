@@ -1,0 +1,173 @@
+﻿ @model MVC_Management.ViewModal.LoansModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1></h1>
+
+
+
+
+
+<hr />
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Client Records</h3>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="user-block">
+                            <img class="img-circle" src="https://x.loandisk.com/images/face_image_placeholder.png" width="200" height="200">
+
+                            <span class="description" style="font-size:13px; color:#000000">
+                                ID: @ViewBag.ID<br>
+                            </span>
+                        </div><!-- /.user-block -->
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><b>Name:</b> @ViewBag.Name</li>
+                            <li><b>Surname:</b> @ViewBag.Surname</li>
+                            <li><b>Address:</b> @ViewBag.Address</li>
+                            <li><b>Gender:</b> @ViewBag.Gender</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+
+                            <li><b>Phone Number:</b> @ViewBag.PhoneNumber
+                            <li><b>Alternative Number:</b> @ViewBag.AlternativeNumber
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+                            <li><b>Total Amount Due:</b> @ViewBag.AmountDue
+
+                        </ul>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Loans</h3>
+    </div>
+
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                   
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loanType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loanAmount)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanDate)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmountDue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DueDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comments)
+                    </th>
+                    <th> Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Allloans)
+                {
+                    <tr>
+
+                        
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loanType)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loanAmount)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanDate)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AmountDue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comments)
+                        </td>
+                        <td>
+
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn  btn-primary"><i class="fa fa-pen"></i> Update</a>|
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn  btn-danger"><i class="fa fa-eye"></i>  reverse loan</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

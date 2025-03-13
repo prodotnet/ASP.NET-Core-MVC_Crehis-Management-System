@@ -1,0 +1,103 @@
+﻿@model MVC_Management.Models.ClientloansP
+
+@{
+    ViewData["Title"] = "Advance Payment";
+}
+
+
+
+
+<h4>This Client Qualifies for adavance payment </h4>
+<div>
+    <p>Do you want to  give the this client an advance ? </p>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Id" class="control-label"></label>
+                        <input asp-for="Id" value="@ViewBag.Ref" class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" value="@ViewBag.PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Balance" class="control-label"></label>
+                        <input asp-for="Balance" value="@ViewBag.PaymentAmount" class="form-control" />
+                        <span asp-validation-for="Balance" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Comments" class="control-label"></label>
+                        <input asp-for="Comments" value="@ViewBag.Comments" class="form-control" />
+                        <span asp-validation-for="Comments" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-md-12">
+        <form asp-action="Delete">
+
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" value="Yes" class="btn btn-success" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+
+    <div class="col-md-12">
+        <form asp-action="ConfirmPayment">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" value="No" class="btn btn-danger" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

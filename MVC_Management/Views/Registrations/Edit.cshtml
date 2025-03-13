@@ -1,0 +1,122 @@
+﻿@model MVC_Management.Models.Registration
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4>Updates</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           <input type="hidden" asp-for="ID" /> 
+
+         <div class="row">
+
+
+
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="col-md-4">
+
+                <div class="form-group">
+                    <label asp-for="Surname" class="control-label"></label>
+                    <input asp-for="Surname" class="form-control" />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+            
+            </div>
+            
+            
+            
+            <div class="col-md-4">
+            
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+             </div>
+
+
+
+                
+             <div class="col-md-4">
+
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+                
+
+
+             <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Al_Phone" class="control-label"></label>
+                    <input asp-for="Al_Phone" class="form-control" />
+                    <span asp-validation-for="Al_Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+
+         
+             <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <input asp-for="Gender" class="form-control" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+              </div>
+          
+
+
+             <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Amount_due" class="control-label"></label>
+                    <input asp-for="Amount_due" class="form-control" readonly />
+                    <span asp-validation-for="Amount_due" class="text-danger"></span>
+                </div>
+            </div>
+
+
+           
+          
+        </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

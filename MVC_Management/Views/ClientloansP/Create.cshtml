@@ -1,0 +1,296 @@
+﻿@model MVC_Management.Models.ClientloansP
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Add A Loan</h4>
+<hr />
+
+
+@if (TempData["ErrorMessage"] != null)
+
+{
+    <div class="alert alert-danger">
+
+        @TempData["ErrorMessage"]
+
+        <button type="button" class="close" data-dissmiss="alert">
+
+            <span>&times;</span>
+        </button>
+
+
+    </div>
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Client Details</h3>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="user-block">
+                            <img class="img-circle" src="https://x.loandisk.com/images/face_image_placeholder.png" width="200" height="200">
+                           
+                            <span class="description" style="font-size:13px; color:#000000">
+                                ID: @ViewBag.ID<br>
+                            </span>
+                        </div><!-- /.user-block -->
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><b>Name:</b> @ViewBag.Name</li>
+                            <li><b>Surname:</b> @ViewBag.Surname</li>
+                            <li><b>Address:</b> @ViewBag.Address</li>
+                            <li><b>Gender:</b> @ViewBag.Gender</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+
+                            <li><b>Phone Number:</b> @ViewBag.PhoneNumber
+                            <li><b>Alternative Number:</b> @ViewBag.AlternativeNumber
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+                            <li><b>Total Amount Due:</b> @ViewBag.AmountDue
+
+                        </ul>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+            <div class="row">
+
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <label asp-for="ClientID" class="control-label"></label>
+                        <input asp-for="ClientID" value="@ViewBag.ID" class="form-control" readonly />
+                        <span asp-validation-for="ClientID" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <label asp-for="loanType" class="control-label"></label>
+
+
+                        <select asp-for="loanType" class="form-control" ViewBage.loanType>
+
+                            <option></option>
+                            <option> Cash</option>
+                            <option>Products</option>
+                            <option> Data</option>
+                            <option>Airtime</option>
+                            <option>Electricity</option>
+                            <option>Dstv</option>
+                            <option>Voucher</option>
+                            <option>Bank charges </option>
+                            <option>Rollover</option>
+                            <option>Acc/Adjustment</option>
+                            <option>Others</option>
+
+
+                        </select>
+
+
+
+                        <span asp-validation-for="loanType" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+
+                    <div class="form-group">
+                        <label asp-for="loanAmount" class="control-label"></label>
+                        <input asp-for="loanAmount" class="form-control" />
+                        <span asp-validation-for="loanAmount" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+
+                    <div class="form-group">
+                        <label asp-for="DueDate" class="control-label"></label>
+                        <input asp-for="DueDate"  type="date" class="form-control" />
+                        <span asp-validation-for="DueDate" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+
+
+                  <div class="col-md-4">
+
+
+                    <div class="form-group">
+                        <label asp-for="Collateral" class="control-label"></label>
+                        <select asp-for="Collateral" id="CollateralId" onchange="changeStatus()" class="form-control">
+                            <option></option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+
+                        </select>
+                        <span asp-validation-for="Collateral" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <label asp-for="Comments" class="control-label"></label>
+                        <input asp-for="Comments" class="form-control" />
+                        <span asp-validation-for="Comments" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+
+                
+                 <div  id="showDiv" style="display: none;">
+                     <div class="row">
+
+
+
+
+                      <div class="col-md-7">
+                        <div class="form-group">
+                            <label asp-for="Model" class="control-label"></label>
+                            <input asp-for="Model" class="form-control" id="myTextbox" />
+                            <span asp-validation-for="Model" class="text-danger"></span>
+                        </div>
+                      </div>
+
+ 
+                     <div class="col-md-7">
+
+                        <div class="form-group">
+                            <label asp-for="SerialNumber" class="control-label"></label>
+                            <input asp-for="SerialNumber" class="form-control" id="myTextbox" />
+                            <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                        </div>
+                     </div>
+
+                     <div class="col-md-7">
+                        <div class="form-group">
+                            <label asp-for="Condition" class="control-label"></label>
+                            <input asp-for="Condition" class="form-control" id="myTextbox" />
+                            <span asp-validation-for="Condition" class="text-danger"></span>
+                        </div>
+                     </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             <div class="row">
+
+                <div class="col-md-2">
+
+                    <div class="form-group">
+                        <input type="submit" value="Capture A Loan" class="btn btn-primary" />
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

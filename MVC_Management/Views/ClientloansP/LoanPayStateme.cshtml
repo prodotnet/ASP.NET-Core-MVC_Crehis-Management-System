@@ -1,0 +1,243 @@
+﻿ @model MVC_Management.ViewModal.LoansModel
+
+@{
+    ViewData["Title"] = "Statements";
+}
+
+<h1></h1>
+
+
+
+
+
+
+<hr />
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Client Records</h3>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="user-block">
+                            <img class="img-circle" src="https://x.loandisk.com/images/face_image_placeholder.png" width="200" height="200">
+
+                            <span class="description" style="font-size:13px; color:#000000">
+                                ID: @ViewBag.ID<br>
+                            </span>
+                        </div><!-- /.user-block -->
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><b>Name:</b> @ViewBag.Name</li>
+                            <li><b>Surname:</b> @ViewBag.Surname</li>
+                            <li><b>Address:</b> @ViewBag.Address</li>
+                            <li><b>Gender:</b> @ViewBag.Gender</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+
+                            <li><b>Phone Number:</b> @ViewBag.PhoneNumber
+                            <li><b>Alternative Number:</b> @ViewBag.AlternativeNumber
+
+                            <li><b>Referance Name:</b> @ViewBag.RefN
+                            <li>
+                             <b>Referance Number:</b> @ViewBag.RefNo
+                               
+                                
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+                            <li><b>Total Amount Due:</b> @ViewBag.AmountDue
+
+                        </ul>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--  
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-4">
+            <div class="row">
+
+                <form asp-action="LoanPayStateme" method="get" class="form-vertical">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                      
+                        <input asp-for="ClientID" type="search" class="form-control" value="@ViewBag.ID" placeholder="Search Client ID" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label">Loan Status</label>
+                        <select asp-for="Status" class="form-control">
+                            <option value="Not Paid">Not Paid</option>
+                            <option value="">Full Statement</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">View Statement <i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+ -->
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Loans</h3>
+    </div>
+
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    
+                    <th>
+                        Name & Surname
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loanType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loanAmount)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanDate)
+                    </th>
+
+                    
+                    <th>
+                        @Html.DisplayNameFor(model => model.Interest)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmountDue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DueDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PaymentDate)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.PaymentAmount)
+                    </th>
+
+                    <th>
+                       Balance
+                    </th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Allloans)
+                {
+                    <tr>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientID)
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+
+                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loanType)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loanAmount)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanDate)
+                        </td>
+                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Interest)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AmountDue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaymentDate)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.PaymentAmount)
+
+                        </td>
+
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.Oustanding)
+
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>

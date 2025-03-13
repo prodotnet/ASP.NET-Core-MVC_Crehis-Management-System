@@ -1,0 +1,312 @@
+﻿@model MVC_Management.ViewModal.PaymentLoans
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Payment</h4>
+
+
+@if (TempData["ErrorMessage"] != null)
+
+{
+    <div class="alert alert-danger">
+
+        @TempData["ErrorMessage"]
+
+        <button type="button" class="close" data-dissmiss="alert">
+
+            <span>&times;</span>
+        </button>
+
+
+    </div>
+}
+
+
+
+
+
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Client Details</h3>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="user-block">
+                            <img class="img-circle" src="https://x.loandisk.com/images/face_image_placeholder.png" width="200" height="200">
+                            <span class="username">
+                                
+                            </span>
+                            <span class="description" style="font-size:13px; color:#000000">
+                                ID: @ViewBag.ID<br>
+                            </span>
+                        </div><!-- /.user-block -->
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><b>Name:</b> @ViewBag.Name</li>
+                            <li><b>Surname:</b> @ViewBag.Surname</li>
+                            <li><b>Address:</b> @ViewBag.Address</li>
+                            <li><b>Gender:</b> @ViewBag.Gender</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+
+                            <li><b>Phone Number:</b> @ViewBag.PhoneNumber
+                            <li><b>Alternative Number:</b> @ViewBag.AlternativeNumber
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+
+                            <li><b>Total Amount Due:</b> @ViewBag.AmountDue
+
+                        </ul>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--  
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-4">
+            <div class="row">
+
+                <form asp-action="Create" method="get" class="form-vertical">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+
+                        <input asp-for="ClientID" type="search" class="form-control" value="@ViewBag.ID" placeholder="Search Client ID" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label">Loan Status</label>
+                        <select asp-for="Status" class="form-control">
+                            <option value="Not Paid">Not Paid</option>
+                          
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">View Statement <i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+ -->
+
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Loans</h3>
+    </div>
+    <form asp-action="ViewTable">
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ClientID)
+                        </th>
+                        <th>
+                           Loan Ref N.o
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.loanType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.loanAmount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LoanDate)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.AmountDue)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DueDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Comments)
+                        
+                        
+                        </th>
+
+
+
+                        @* Only show the "Per Record Payment" column if the status is "Not Paid" and status is not Full Statement *@
+                        @if (Model.Status == "Not Paid" || string.IsNullOrEmpty(Model.Status))
+                        {
+                            <th>Per Record Payment</th>
+                        }
+                        
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    
+              
+                     @foreach (var item in Model.Allloans)
+                     {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ClientID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.loanType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.loanAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LoanDate)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AmountDue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DueDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comments)
+                            </td>
+
+
+                            @* Show "Payment" button only for loans with "Not Paid" status *@
+                            @if (item.Status == "Not Paid")
+                            {
+                                <td>
+                                    <a asp-action="PerLinePayment" asp-route-id="@item.Id" class="btn btn-success">
+                                        <i class="fa fa-dollar-sign"></i> Payment
+                                    </a>
+                                </td>
+                            }
+                           
+                        </tr>
+                      }
+
+                    
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="fullpayment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ClientID" class="control-label"></label>
+                        <input asp-for="ClientID" value="@ViewBag.ID" readonly class="form-control" />
+                        <span asp-validation-for="ClientID" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label  class="control-label"> Payment Amount </label>
+                        <input asp-for="Balance" value ="@ViewBag.Number"  class="form-control" />
+                        <span asp-validation-for="Balance" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Comments" class="control-label"></label>
+                        <input asp-for="Comments" class="form-control" />
+                        <span asp-validation-for="Comments" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-primary"><i class="fa fa-dollar-sign"></i> Payment</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

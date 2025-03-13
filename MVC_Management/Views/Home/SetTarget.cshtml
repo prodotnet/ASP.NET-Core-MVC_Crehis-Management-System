@@ -1,0 +1,15 @@
+﻿@model MVC_Management.Models.MonthlyTarget
+
+
+
+<div class="container mt-4">
+    <h2>Set Monthly Loan Target</h2>
+    <form asp-action="SetTarget" method="post" class="mt-4">
+        <div class="form-group">
+            <label asp-for="TargetAmount" class="control-label"></label>
+            <input asp-for="TargetAmount" class="form-control" />
+            <span asp-validation-for="TargetAmount" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Set Target</button>
+    </form>
+</div>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<MVC_Management.Models.ClientsLoansRecords>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loanType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loanAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Interest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountDue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loanType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loanAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountDue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

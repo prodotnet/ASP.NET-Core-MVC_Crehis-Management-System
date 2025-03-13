@@ -1,0 +1,102 @@
+﻿ @model MVC_Management.ViewModal.LoansModel
+
+@{
+    ViewData["Title"] = "Oustanding Loans";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">All Loans</h3>
+    </div>
+
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+
+                 
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>Fullname</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loanType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.loanAmount)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoanDate)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.AmountDue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DueDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comments)
+                    </th>
+                    <th> Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Allloans)
+                {
+                    <tr>
+
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loanType)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.loanAmount)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoanDate)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AmountDue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comments)
+                        </td>
+                        <td>
+
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn  btn-primary"><i class="fa fa-pen"></i> Update</a>|
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn  btn-warning"><i class="fa fa-eye"></i> View</a>
+
+
+                            <!--    <a asp-action="Delete" asp-route-id="@item.Id" class="btn  btn-ganader"><i class="fa fa-eye"></i> Delete</a>  -->
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

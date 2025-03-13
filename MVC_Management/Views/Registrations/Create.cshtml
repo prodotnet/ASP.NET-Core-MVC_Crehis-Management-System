@@ -1,0 +1,187 @@
+﻿@model MVC_Management.Models.Registration
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1></h1>
+<h4>Registration</h4>
+<hr />
+
+
+@if (TempData["ErrorMessage"] != null)
+
+{
+    <div class="alert alert-danger">
+
+        @TempData["ErrorMessage"]
+
+        <button type="button" class="close" data-dissmiss="alert">
+
+            <span>&times;</span>
+        </button>
+
+
+    </div>
+}
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" method="post"   enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+           
+            <!-- <div class="row">
+                <div class="imgholder">
+                    <div class="form-group">
+                    <label asp-for="Photo" for="uploading" class="upload">  
+                    <input asp-for="Photo" class="picture " type="file" accept=".png,.jpg,.jpeg" class="img"  id="uploadimg" name="Picture" />             
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                    </label>
+                    <img src="~ /img/pic1.png" alt="" width="150" height="150" class="img" />
+                    </div>
+                </div>
+            </div> -->
+           
+
+
+           <div class="row">
+
+              
+               
+               <div class ="col-md-4">
+                <div class="form-group">
+                   <label asp-for="ID" class="control-label"></label>
+                   <input asp-for="ID" class="form-control" />
+                   <span asp-validation-for="ID" class="text-danger"></span>
+                </div>
+              </div>
+
+               
+
+
+
+
+               <div class="col-md-4">
+                <div class="form-group">
+                  <label asp-for="Name" class="control-label"></label>
+                  <input asp-for="Name" class="form-control" />
+                  <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+               </div>
+
+               <div class="col-md-4">
+                <div class="form-group">
+                   <label asp-for="Surname" class="control-label"></label>
+                   <input asp-for="Surname" class="form-control" />
+                   <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+               </div>
+
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label"></label>
+
+                        <select asp-for="Gender" class="form-control" ViewBage.Gender>
+
+                            <option></option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+
+
+
+
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-4">
+                 <div class="form-group">
+                  <label asp-for="Phone" class="control-label"></label>
+                  <input asp-for="Phone" class="form-control" />
+                  <span asp-validation-for="Phone" class="text-danger"></span>
+                 </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                  <label asp-for="Address" class="control-label"></label>
+                  <input asp-for="Address" class="form-control" />
+                  <span asp-validation-for="Address" class="text-danger"></span>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                 <div class="form-group">
+                  <label asp-for="Al_Phone" class="control-label"></label>
+                  <input asp-for="Al_Phone" class="form-control" />
+                  <span asp-validation-for="Al_Phone" class="text-danger"></span>
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ReferanceName" class="control-label"></label>
+                        <input asp-for="ReferanceName" class="form-control" />
+                        <span asp-validation-for="ReferanceName" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="ReferanceNumber" class="control-label"></label>
+                        <input asp-for="ReferanceNumber" class="form-control" />
+                        <span asp-validation-for="ReferanceNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Work"  class="control-label"></label>
+                        <input asp-for="Work"  class="form-control" />
+                        <span asp-validation-for="Work" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+           
+           </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="submit" value="Add New Client" class="btn btn-primary" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

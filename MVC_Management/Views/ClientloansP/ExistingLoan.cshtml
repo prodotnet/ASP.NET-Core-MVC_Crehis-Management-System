@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MVC_Management.Models.ClientloansP>
+
+@{
+    ViewData["Title"] = "Exsiting";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+
+
+                <p> Opps! there is A duplication. It seem like you have already captured this Loan   </p>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-12">
+
+        <div>
+            <a asp-controller="ClientLoansP" asp-action="Addloan">Back</a>
+        </div>
+
+    </div>
+</div>
